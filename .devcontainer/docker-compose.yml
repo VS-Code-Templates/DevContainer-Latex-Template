@@ -6,11 +6,12 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
-        
+        env_file:
+            - build.env
         volumes:
             - ../.:/home/user/latex-ws:rw
         # For attaching shells
         stdin_open: true # docker run -i
         tty: true        # docker run -t
-
+        hostname: latex-ws
         user: user
